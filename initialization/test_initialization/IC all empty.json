@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/templateSchema.json",
+  "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "ann:id": "",
+  "ann:label": "Initial Infections - number",
+  "ann:description": "",
+  "template": {
+
+  },
+  "userInput": [
+
+  ],
+  "requirements": [
+
+  ],
+  "engines": [
+
+  ]
+}

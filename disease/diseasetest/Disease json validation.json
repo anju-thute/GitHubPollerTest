@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com//NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "ann:id": "FluWithAsymptomaticInfection",
+  "ann:label": "",
+  "ann:description": "",
+  "template": [
+
+  ],
+  "userInput": {
+
+  },
+  "requirements": [
+
+  ],
+  "engines": {
+
+  },
+  "exceads": [
+
+]
+}

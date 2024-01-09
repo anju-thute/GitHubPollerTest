@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com//NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "ann:id": "FluWithAsymptomaticInfection",
+  "ann:label": "Flu with symptomatic and asymptomatic infections",
+  "ann:description": "Classic SEIR model with an extension to have a symptomatic and an asymptomatic infectious state (with reduced infectivity).",
+  "template": {
+    "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/diseaseModelSchema.json",
+    "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/diseaseModelSchema.json",
+    "analysis": {
+      "infectiousStates": "Isymp+Iasymp"
+    }
+  },
+  "userInput": [
+    {
+      "ann:id": "Sucsceptibility",
+      "value": [
+        "/template/states/1/susceptibility"
+      ],
+      "exceads": {
+
+      }
+    },
+    {
+      "ann:id": "InfectivitySymptomatic",
+      "value": [
+        "/template/states/3/infectivity"
+      ],
+      "exceads": {
+
+      }
+    },
+    {
+      "ann:id": "InfectivityAsymptomatic",
+      "value": [
+        "/template/states/4/infectivity"
+      ],
+      "exceads": {
+
+      }
+    },
+    {
+      "ann:id": "ProbabilityOfAsymptomaticProgression",
+      "value": [
+        "/template/transitions/2/probability"
+      ],
+      "exceads": {
+
+      }
+    }
+  ],
+  "requirements": [
+
+  ],
+  "engines": [
+    "EpiHiper"
+  ],
+  "exceads": {
+    "name": "Influenza Disease Model",
+    "groupName": [
+      "General",
+      "SEIR"
+    ]
+  }
+}

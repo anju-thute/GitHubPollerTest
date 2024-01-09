@@ -1,0 +1,493 @@
+{
+    "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+    "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+    "ann:id": "STOMP_flu_age_group_assignments_and_an_initial_infection",
+    "ann:label": "Age and risk based susceptible states with initial infection of school aged kids",
+    "ann:description": "For age and risk expanded influenza models, with appropriate age-risk Susceptible states, initialize all individuals to their proper initial state along with some initial infections.",
+    "template": {
+        "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/initializationSchema.json",
+        "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/initializationSchema.json",
+        "initializations": [
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "p"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 93,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_pl"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "nonsampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_ph"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "s"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 88,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_sl"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "nonsampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_sh"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "a"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 85,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_al"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "nonsampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_ah"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "o"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 69,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_ol"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "nonsampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_oh"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "g"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 53,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_gl"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "nonsampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "S_gh"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "s"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 1,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "healthState"
+                                            }
+                                        },
+                                        "operator": "=",
+                                        "value": {
+                                            "healthState": "E_sl"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "userInput": [
+        {
+            "ann:id": "lowrisk_preschool",
+            "ann:label": "Proportion Low Risk for Age Group 0-4",
+            "ann:description": "Proportion of individuals with low risk for severe influenza outcomes in Preshool Age Group (0-4)",
+            "value": [
+                "/template/initializations/1/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "lowrisk_school",
+            "ann:label": "Proportion Low Risk for Age Group 5-17",
+            "ann:description": "Proportion of individuals with low risk for severe influenza outcomes in School Age Group (5-17)",
+            "value": [
+                "/template/initializations/2/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "lowrisk_adult",
+            "ann:label": "Proportion Low Risk for Age Group 18-49",
+            "ann:description": "Proportion of individuals with low risk for severe influenza outcomes in Adult Age Group (18-49)",
+            "value": [
+                "/template/initializations/3/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "lowrisk_olderadult",
+            "ann:label": "Proportion Low Risk for Age Group 50-64",
+            "ann:description": "Proportion of individuals with low risk for severe influenza outcomes in Older Adult Age Group (50-64)",
+            "value": [
+                "/template/initializations/4/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "lowrisk_golden",
+            "ann:label": "Proportion Low Risk for Age Group 65+",
+            "ann:description": "Proportion of individuals with low risk for severe influenza outcomes in Golden Age Group (65+)",
+            "value": [
+                "/template/initializations/5/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "School_kid_initial_infections",
+            "ann:label": "Proportion of seeded initial infections",
+            "ann:description": "Proportion of school-aged individuals for initially infecting",
+            "value": [
+                "/template/initializations/6/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 100,
+                "sweep": false,
+                "calibrate": false
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "field": "age_group"
+        },
+        {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')]",
+            "errorMessage": "A population with the field 'age_group' is required."
+        },
+        {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='p')]",
+            "errorMessage": "A population with the enumeration value 'p' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='s')]",
+            "errorMessage": "A population with the enumeration value 's' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='a')]",
+            "errorMessage": "A population with the enumeration value 'a' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='o')]",
+            "errorMessage": "A population with the enumeration value 'o' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='g')]",
+            "errorMessage": "A population with the enumeration value 'g' for the field 'age_group' is required."
+          },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_pl')]",
+            "errorMessage": "A model with the state 'S_pl' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_sl')]",
+            "errorMessage": "A model with the state 'S_sl' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_al')]",
+            "errorMessage": "A model with the state 'S_al' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_ol')]",
+            "errorMessage": "A model with the state 'S_ol' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_gl')]",
+            "errorMessage": "A model with the state 'S_gl' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_ph')]",
+            "errorMessage": "A model with the state 'S_ph' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_sh')]",
+            "errorMessage": "A model with the state 'S_sh' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_ah')]",
+            "errorMessage": "A model with the state 'S_ah' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_oh')]",
+            "errorMessage": "A model with the state 'S_oh' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='S_gh')]",
+            "errorMessage": "A model with the state 'S_gh' is required."
+        },
+        {
+            "jsonPath": "$.template.states[?(@.id=='E_sl')]",
+            "errorMessage": "A model with the state 'E_sl' is required."
+        }
+    ],
+    "engines": [
+        "EpiHiper"
+    ],
+    "exceads": {
+        "requires": {
+            "allOf": [
+                "influenza_stompflu_agegroups.json"
+            ]
+        }
+    }
+}

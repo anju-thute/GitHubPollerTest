@@ -1,0 +1,355 @@
+{
+    "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+    "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/er-Schema/master/schema/templateSchema.json",
+    "ann:id": "FluVacination_CDCagegroups",
+    "ann:label": "Flu Vaccination using CDC Age Groups",
+    "ann:description": "Seasonal influenza vaccination and age-specific effectiveness.",
+    "template": {
+        "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/er-Schema/master/schema/initializationSchema.json",
+        "initializations": [
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "p"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 70,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "infectivityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    },
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "susceptibilityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "s"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 30,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "infectivityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    },
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "susceptibilityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "a"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 30,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "infectivityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    },
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "susceptibilityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "o"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 30,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "infectivityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    },
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "susceptibilityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "target": {
+                    "elementType": "node",
+                    "scope": "local",
+                    "left": {
+                        "field": "age_group"
+                    },
+                    "operator": "==",
+                    "right": {
+                        "value": "g"
+                    }
+                },
+                "sampling": {
+                    "type": "individual",
+                    "number": 30,
+                    "sampled": {
+                        "foreach": [
+                            {
+                                "operations": [
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "infectivityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    },
+                                    {
+                                        "target": {
+                                            "node": {
+                                                "property": "susceptibilityFactor"
+                                            }
+                                        },
+                                        "operator": "*=",
+                                        "value": {
+                                            "number": 0.8
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "userInput": [
+        {
+            "ann:id": "VaccinationRate0_4",
+            "ann:label": "Vaccination Rate for Age Group 0-4",
+            "ann:description": "Proportion of individuals in the Age Group 0-4 vaccinated",
+            "value": [
+                "/template/initializations/1/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 1,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "VaccinationRate5_17",
+            "ann:label": "Vaccination Rate for Age Group 5-17",
+            "ann:description": "Proportion of individuals in the Age Group 5-17 vaccinated",
+            "value": [
+                "/template/initializations/2/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 1,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "VaccinationRate18_49",
+            "ann:label": "Vaccination Rate for Age Group 18-49",
+            "ann:description": "Proportion of individuals in the Age Group 18-49 vaccinated",
+            "value": [
+                "/template/initializations/2/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 1,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "VaccinationRate50_64",
+            "ann:label": "Vaccination Rate for Age Group 50-64",
+            "ann:description": "Proportion of individuals in the Age Group 50-64 vaccinated",
+            "value": [
+                "/template/initializations/2/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 1,
+                "sweep": false,
+                "calibrate": false
+            }
+        },
+        {
+            "ann:id": "VaccinationRate65_",
+            "ann:label": "Vaccination Rate for Age Group 65+",
+            "ann:description": "Proportion of individuals in the Age Group 65+ vaccinated",
+            "value": [
+                "/template/initializations/3/sampling/number"
+            ],
+            "exceads": {
+                "minValue": 0,
+                "maxValue": 1,
+                "sweep": false,
+                "calibrate": false
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')]",
+            "errorMessage": "A population with the field 'age_group' is required."
+        },
+        {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='p')]",
+            "errorMessage": "A population with the enumeration value 'p' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='s')]",
+            "errorMessage": "A population with the enumeration value 's' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='a')]",
+            "errorMessage": "A population with the enumeration value 'a' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='o')]",
+            "errorMessage": "A population with the enumeration value 'o' for the field 'age_group' is required."
+          },
+          {
+            "jsonPath": "$.schema.fields[?(@.name=='age_group')].constraints.enum[?(@=='g')]",
+            "errorMessage": "A population with the enumeration value 'g' for the field 'age_group' is required."
+          }
+    ],
+    "engines": [
+        "EpiHiper"
+    ],
+    "exceads": {
+        "requires": {
+            "allOf": [
+                "montgomery_county_va.json"
+            ]
+        }
+    }
+}

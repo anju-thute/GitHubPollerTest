@@ -1,0 +1,363 @@
+{
+  "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/templateSchema.json",
+  "ann:id": "VoluntaryHomeIsolation",
+  "ann:label": "Voluntary Home Isolation",
+  "ann:description": "Voluntary home isolation for a percentage of complying individuals.",
+  "template": {
+    "$schema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/interventionSchema.json",
+    "epiHiperSchema": "https://raw.githubusercontent.com/NSSAC/EpiHiper-Schema/master/schema/interventionSchema.json",
+    "traits": [
+      {
+        "id": "nodeTrait",
+        "ann:label": "Node Trait",
+        "features": [
+          {
+            "id": "participateInHomeIsolation",
+            "ann:label": "Treatment",
+            "enums": [
+              {
+                "id": "true",
+                "ann:label": "true"
+              },
+              {
+                "id": "false",
+                "ann:label": "false"
+              }
+            ],
+            "default": "false"
+          }
+        ]
+      }
+    ],
+    "sets": [
+      {
+        "id": "participateInHomeIsolationLocal",
+        "ann:label": "All nodes which participate in voluntary home isolation.",
+        "scope": "local",
+        "content": {
+          "elementType": "node",
+          "scope": "local",
+          "left": {
+            "node": {
+              "property": "nodeTrait",
+              "feature": "participateInHomeIsolation"
+            }
+          },
+          "operator": "==",
+          "right": {
+            "value": {
+              "trait": "nodeTrait",
+              "feature": "participateInHomeIsolation",
+              "enum": "true"
+            }
+          }
+        }
+      },
+      {
+        "id": "participateInHomeIsolationGlobal",
+        "ann:label": "All nodes which participate in voluntary home isolation.",
+        "scope": "global",
+        "content": {
+          "elementType": "node",
+          "scope": "global",
+          "left": {
+            "node": {
+              "property": "nodeTrait",
+              "feature": "participateInHomeIsolation"
+            }
+          },
+          "operator": "==",
+          "right": {
+            "value": {
+              "trait": "nodeTrait",
+              "feature": "participateInHomeIsolation",
+              "enum": "true"
+            }
+          }
+        }
+      },
+      {
+        "id": "workEdgesTarget",
+        "scope": "local",
+        "content": {
+          "elementType": "edge",
+          "left": {
+            "edge": {
+              "property": "targetActivity",
+              "feature": "activityType"
+            }
+          },
+          "operator": "==",
+          "right": {
+            "value": {
+              "trait": "activityTrait",
+              "feature": "activityType",
+              "enum": "work"
+            }
+          }
+        }
+      },
+      {
+        "id": "workEdgesSource",
+        "scope": "local",
+        "content": {
+          "elementType": "edge",
+          "left": {
+            "edge": {
+              "property": "sourceActivity",
+              "feature": "activityType"
+            }
+          },
+          "operator": "==",
+          "right": {
+            "value": {
+              "trait": "activityTrait",
+              "feature": "activityType",
+              "enum": "work"
+            }
+          }
+        }
+      },
+      {
+        "id": "targetNodeParticipateInHomeIsolation",
+        "scope": "local",
+        "content": {
+          "operation": "intersection",
+          "sets": [
+            {
+              "scope": "local",
+              "elementType": "edge",
+              "operator": "withTargetNodeIn",
+              "selector": {
+                "set": {"idRef": "participateInHomeIsolationLocal"}
+              }
+            },
+            {
+              "set": {"idRef": "workEdgesTarget"}
+            }
+          ]
+        }
+      },
+      {
+        "id": "sourceNodeParticipateInHomeIsolation",
+        "scope": "local",
+        "content": {
+          "operation": "intersection",
+          "sets": [
+            {
+              "elementType": "edge",
+              "operator": "withSourceNodeIn",
+              "selector": {
+                "set": {"idRef": "participateInHomeIsolationGlobal"}
+              }
+            },
+            {
+              "set": {"idRef": "workEdgesSource"}
+            }
+          ]
+        }
+      }
+    ],
+    "variables": [],
+    "triggers": [
+      {
+        "ann:id": "voluntaryHomeIsolationSelf",
+        "trigger": {
+          "left": {
+            "sizeof": {
+              "set": {"idRef": "targetNodeParticipateInHomeIsolation"}
+            }
+          },
+          "operator": ">",
+          "right": {
+            "value": {"number": 0}
+          }
+        },
+        "interventionIds": ["intervention_1"]
+      },
+      {
+        "ann:id": "voluntaryHomeIsolationCoWorker",
+        "trigger": {
+          "left": {
+            "sizeof": {
+              "set": {"idRef": "sourceNodeParticipateInHomeIsolation"}
+            }
+          },
+          "operator": ">",
+          "right": {
+            "value": {"number": 0}
+          }
+        },
+        "interventionIds": ["intervention_2"]
+      }
+    ],
+    "interventions": [
+      {
+        "$comment": "Select Participants for voluntary Home Isolation",
+        "id": "intervention_0",
+        "target": {
+          "set": {"idRef": "enteredIsymp"}
+        },
+        "sampling": {
+          "type": "individual",
+          "number": 30,
+          "sampled": {
+            "foreach": [
+              {
+                "delay": 0,
+                "operations": [
+                  {
+                    "target": {
+                      "node": {
+                        "property": "nodeTrait",
+                        "feature": "participateInHomeIsolation"
+                      }
+                    },
+                    "operator": "=",
+                    "value": {
+                      "trait": "nodeTrait",
+                      "feature": "participateInHomeIsolation",
+                      "enum": "true"
+                    }
+                  }
+                ]
+              },
+              {
+                "delay": 1,
+                "operations": [
+                  {
+                    "target": {
+                      "node": {
+                        "property": "nodeTrait",
+                        "feature": "participateInHomeIsolation"
+                      }
+                    },
+                    "operator": "=",
+                    "value": {
+                      "trait": "nodeTrait",
+                      "feature": "participateInHomeIsolation",
+                      "enum": "false"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "$comment": "Voluntary Home Isolation (self)",
+        "id": "intervention_1",
+        "target": {
+          "set": {"idRef": "targetNodeParticipateInHomeIsolation"}
+        },
+        "foreach": [
+          {
+            "operations": [
+              {
+                "target": {
+                  "edge": {"property": "weight"}
+                },
+                "operator": "/=",
+                "value": {"number": 1000000}
+              }
+            ]
+          },
+          {
+            "delay": 14,
+            "operations": [
+              {
+                "target": {
+                  "edge": {"property": "weight"}
+                },
+                "operator": "*=",
+                "value": {"number": 1000000}
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "$comment": "Voluntary Home Isolation (co-worker)",
+        "id": "intervention_2",
+        "target": {
+          "set": {"idRef": "sourceNodeParticipateInHomeIsolation"}
+        },
+        "foreach": [
+          {
+            "operations": [
+              {
+                "target": {
+                  "edge": {"property": "weight"}
+                },
+                "operator": "/=",
+                "value": {"number": 1000000}
+              }
+            ]
+          },
+          {
+            "delay": 14,
+            "operations": [
+              {
+                "target": {
+                  "edge": {"property": "weight"}
+                },
+                "operator": "*=",
+                "value": {"number": 1000000}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "userInput": [
+    {
+      "ann:id": "ParticipationPercentage",
+      "ann:label": "Participation Percentage",
+      "ann:description": "The percent of individuals voluntary participating.",
+      "value": ["/template/interventions/1/sampling/number"],
+      "exceads": {
+        "minValue": 0.0,
+        "maxValue": 100.0,
+        "sweep": true,
+        "calibrate": false
+      }
+    },
+    {
+      "ann:id": "DurationOfParticipation",
+      "ann:label": "Duration of Participation",
+      "ann:description": "The duration in days the individuals participate.",
+      "value": [
+        "/template/interventions/2/foreach/2/delay",
+        "/template/interventions/3/foreach/2/delay"
+      ],
+      "exceads": {
+        "minValue": 1,
+        "maxValue": 30,
+        "sweep": true,
+        "calibrate": false
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "jsonPath": "$[?($['ann:id'] == 'ProphylaxTrigger')]",
+      "errorMessage": "The trigger 'Trigger Prophylax for Household Members' is required."
+    },
+    {
+      "jsonPath": "$[?($['ann:id'] == 'NewlySymptomaticIndividuals')]",
+      "errorMessage": "The trigger 'Newly Symptomatic Individuals' is required."
+    }
+  ],
+  "engines": ["EpiHiper"], 
+  "exceads": {
+    "requires": {
+      "allOf": [
+          "prophylax_household_helper.json",
+          "count_symptomatic_helper.json"
+      ]
+    }
+  }
+}
